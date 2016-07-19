@@ -46,35 +46,114 @@ const images = {
 preloader(images);
 
 const theme = createTheme({
-  primary: "white"
+  primary: "black"
 }, {
   primary: "Helvetica"
 });
 
+
 export default class Presentation extends React.Component {
   render() {
+    const style = {
+      color : "white"
+    }
     return (
       <Spectacle theme={theme}>
-        <Deck transition={["slide"]} transitionDuration={600} progress = {"bar"}>
+        <Deck transition={["slide"]} transitionDuration={600} progress = {"bar"} controls={false}>
+
           <Slide transition={["slide"]} bgColor="primary">
-            <Text textSize="2em" fit lineHeight={1} textColor="black" >
+            <Text textSize="2em" fit lineHeight={1} textColor="white" >
               Imperio
             </Text>
-            <Text textSize="2em" lineHeight={1} textColor="black">
+            <Text textSize="2em" lineHeight={1} textColor="white">
               control your
             </Text>
-            <Text textSize="2em" margin="0px 0px 20px 100px" lineHeight={1} textColor="black">
+            <Text textSize="2em" margin="0px 0px 20px 100px" lineHeight={1} textColor="white">
               experience
             </Text>
-            <Text textSize="1em" margin="50px 0px 0px" >Austin Lyon, Austin Nwaukoni</Text>
-            <Text textSize="1em" margin="0px 0px 0px" >Matt McLaughlin, and Michael Blanchard</Text>
+            <Text textSize="1em" margin="50px 0px 0px" textColor="white"> Austin Lyon, Austin Nwaukoni </Text>
+            <Text textSize="1em" margin="0px 0px 0px" textColor="white"> Matt McLaughlin, and Michael Blanchard </Text>
           </Slide>
+
+          <Slide>
+            <Text textSize="2em" margin="0px 0px 0px 0px" textColor="white">
+              Problem
+            </Text>
+            <List textColor="white">
+              <ListItem>Desktop experiences are mostly limited to keyboard and mouse</ListItem>
+              <ListItem>Mobile sensor data is available to the browser, but it is not widely implemented</ListItem>
+            </List>
+          </Slide>
+
+          <Slide>
+
+            <Text textSize="2em" textColor="white">
+              Our Solution
+            </Text>
+            <Text textSize="1em" margin="0px 0px 0px 0px" textColor="white">
+              Imperio is an SDK that allows developers create a real-time bridge between mobile device inputs and browser interactivity
+            </Text>
+          </Slide>
+
+          <Slide>
+            <Text textSize="2em" margin="0px 0px 0px 0px" textColor="white">
+              Solution
+            </Text>
+            <Layout>
+            <Text textColor="white">
+              Simple Installation
+            </Text>
+            <CodePane lang="javascript">
+              const imperio = require('imperio')(server)
+            </CodePane>
+            <Text textColor="white">
+              Endless Possibilities
+            </Text>
+            </Layout>
+          </Slide>
+
+          <Slide>
+            <Heading size={1}  margin="0px 0px 0px 0px" textColor="white">
+              DEMO
+            </Heading>
+          </Slide>
+
+          <Slide>
+            <Text textSize="2em" margin="0px 300px 0px 0px" textColor="white">
+              Technical Challenges
+            </Text>
+            <List textColor="white" margin= "100px 0px 500px 0px">
+              <ListItem margin="0px 0px 50px 0px"> Creating a powerful yet intuitive library</ListItem>
+              <ListItem>Implementing WebRTC that falls back to sockets</ListItem>
+            </List>
+          </Slide>
+
+          <Slide >
+            <Text textSize="2em" margin="0px 0px 0px 0px" textColor="white">
+            Check Us Out
+          </Text>
+            <Text  margin ="0px 0px 0px 0px" textColor="white">
+              website - <Link style={style} href="https://imperiojs.com">http://imperiojs.com</Link>
+            </Text>
+            <Text  textColor="white">
+              github - <Link style={style}>https://github.com/imperiojs/imperio</Link>
+            </Text>
+            <Text  textColor="white">
+              npm - <Link style={style} href="https://www.npmjs.com/package/imperiojs">https://www.npmjs.com/package/imperiojs</Link>
+            </Text>
+          </Slide>
+
+
+
+
+
           <Slide transition={["slide"]} bgColor="black" notes="You can even put notes on your slide. How awesome is that?">
             <Image src={images.kat.replace("/", "")} margin="0px auto 40px" height="293px"/>
             <Heading size={2} caps fit textColor="primary" textFont="primary">
               Wait what?
             </Heading>
           </Slide>
+
           <Slide transition={["zoom", "fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
             <CodePane
               lang="jsx"
